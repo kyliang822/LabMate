@@ -1,0 +1,31 @@
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+
+# Python tooling and test output
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# Frontend build and test output
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Local runtime data and logs (keep source and reports tracked)
+*.log
+/uploads/
+/data/
+/tmp/
