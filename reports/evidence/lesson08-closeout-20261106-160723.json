@@ -1,0 +1,169 @@
+{
+  "results": [
+    {
+      "check": "login-adminA",
+      "result": "green",
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "check": "login-adminB",
+      "result": "green",
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "check": "login-userA1",
+      "result": "green",
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "check": "login-userA2",
+      "result": "green",
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "check": "login-userB1",
+      "result": "green",
+      "actual": {
+        "http_status": 200
+      }
+    },
+    {
+      "check": "login-wrong-password",
+      "result": "green",
+      "actual": {
+        "http_status": 401
+      }
+    },
+    {
+      "check": "upload-202",
+      "result": "green",
+      "actual": {
+        "http_status": 202
+      }
+    },
+    {
+      "check": "upload-ready",
+      "result": "green",
+      "actual": {
+        "task_id": "bc246c41-0b77-4762-add4-bcff15d18207",
+        "status": "ready",
+        "error_code": null
+      }
+    },
+    {
+      "check": "SEC-02-search-userA1",
+      "result": "green",
+      "actual": {
+        "http_status": 200,
+        "result_count": 1
+      }
+    },
+    {
+      "check": "SEC-02-search-userB1",
+      "result": "green",
+      "actual": {
+        "http_status": 200,
+        "result_count": 0
+      }
+    },
+    {
+      "check": "SEC-02-search-adminB",
+      "result": "green",
+      "actual": {
+        "http_status": 200,
+        "result_count": 0
+      }
+    },
+    {
+      "check": "SEC-03-userA1",
+      "result": "green",
+      "actual": {
+        "http_status": 403
+      }
+    },
+    {
+      "check": "SEC-03-userB1",
+      "result": "green",
+      "actual": {
+        "http_status": 403
+      }
+    },
+    {
+      "check": "SEC-03-no-side-effect",
+      "result": "green",
+      "actual": {
+        "config_unchanged": true,
+        "audit_delta": 0
+      }
+    },
+    {
+      "check": "config-admin-idempotent",
+      "result": "green",
+      "actual": {
+        "statuses": [
+          200,
+          200
+        ],
+        "old_version": 0,
+        "new_version": 1
+      }
+    },
+    {
+      "check": "SEC-07-skill-call",
+      "result": "green",
+      "actual": {
+        "http_status": 200,
+        "skill_id": "material-guide",
+        "status": "success"
+      }
+    },
+    {
+      "check": "SEC-07-log",
+      "result": "green",
+      "actual": {
+        "id": "b0f3adf1-8986-4e3a-b756-da7a5c18188d",
+        "actor_id": "ac3e8930-1ae0-5579-ade3-e843722048fa",
+        "lab_id": "57f92fc8-81fc-5129-b625-109b0f6bc037",
+        "skill_id": "material-guide",
+        "skill_version": "1.0",
+        "config_version": 1,
+        "status": "success",
+        "duration_ms": 36.98512899973139,
+        "usage": {
+          "llm_called": false,
+          "prompt_tokens": 0,
+          "retrieved_chunks": 1,
+          "completion_tokens": 0
+        },
+        "request_id": "54876653-ca15-45eb-85df-d4fb30d00a0a",
+        "created_at": "2026-11-06T08:08:20.487661+00:00"
+      }
+    },
+    {
+      "check": "SEC-07-log-isolation",
+      "result": "green",
+      "actual": {
+        "http_status": 404
+      }
+    },
+    {
+      "check": "SEC-02-skill-context-isolation",
+      "result": "green",
+      "actual": {
+        "http_status": 200,
+        "result_count": 0
+      }
+    }
+  ],
+  "all_checks_green": true,
+  "note": "Live HTTP/DB evidence; skill is source retrieval, no LLM generation. Peer signature remains human.",
+  "source_sha256": "2b44a314e89a541c5c7e7cde5ae1900a9066e40e52233bee5f4b0c09f12397d9"
+}

@@ -121,3 +121,7 @@ def original(material_id: uuid.UUID, version: int, actor=Depends(authenticated))
         'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store',
         'X-Material-Version-State': 'inactive' if row['deleted_at'] else (
             'current' if row['is_current'] else 'historical')})
+
+
+from backend.app.lesson08_api import create_router  # noqa: E402
+app.include_router(create_router(authenticated, administrator))

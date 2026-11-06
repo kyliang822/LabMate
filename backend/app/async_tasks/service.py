@@ -13,6 +13,8 @@ def connect():
 
 
 def identity(token):
+    from backend.app.lesson08_service import verify_signature_if_present
+    verify_signature_if_present(token)
     with connect() as db:
         actor = db.execute('''SELECT u.* FROM access_tokens t JOIN app_users u ON u.id=t.user_id
             WHERE t.digest=%s AND t.expires_at>now() AND u.enabled''',

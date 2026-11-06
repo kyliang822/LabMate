@@ -2,6 +2,7 @@
 import { ref, onUnmounted } from 'vue'
 type Task = { task_id: string; status: string; stage: string; attempts: number; retries: number; error_code: string | null }
 const token = ref(''), file = ref<File | null>(null), taskId = ref(''), task = ref<Task | null>(null)
+const username = ref(''), password = ref('')
 const busy = ref(false), error = ref(''), watching = ref(false)
 const labels: Record<string, string> = { queued: '排队中', processing: '处理中', ready: '已就绪', failed: '失败' }
 let timer: ReturnType<typeof setTimeout> | undefined
@@ -52,16 +53,28 @@ async function retry() {
     retryKey = crypto.randomUUID(); watch()
   } catch (e) { error.value = String(e) } finally { busy.value = false }
 }
-function logout() { stop(); token.value = ''; task.value = null; taskId.value = ''; error.value = '' }
+async function login() {
+  busy.value = true; error.value = ''; stop()
+  try {
+    const result = await api('/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username.value, password: password.value }) })
+    token.value = result.access_token; password.value = ''
+  } catch (e) { error.value = String(e) } finally { busy.value = false }
+}
+function logout() { password.value = ''; stop(); token.value = ''; task.value = null; taskId.value = ''; error.value = '' }
 onUnmounted(stop)
 </script>
 <template>
   <main>
     <p class="eyebrow">LABMATE · 第八课模块演示</p>
     <h1>资料处理</h1>
-    <p>提交资料后可查看处理进度。此入口使用管理员演示令牌，正式登录尚未接入。</p>
+    <p>提交资料后可查看处理进度。使用账号密码登录后上传资料；令牌仅保存在当前页面内存。</p>
     <section>
-      <label>演示令牌<input v-model="token" type="password" autocomplete="off" placeholder="仅保存在当前页面内存中" @input="stop" /></label>
+      <label>账号<input v-model="username" autocomplete="username" /></label>
+      <label>密码<input v-model="password" type="password" autocomplete="current-password" /></label>
+      <button :disabled="busy || !username || !password" @click="login">登录</button>
+      <p v-if="token">已取得登录令牌，可提交或查询任务。</p>
+      <label>兼容旧CLI演示令牌<input v-model="token" type="password" autocomplete="off" placeholder="仅保存在当前页面内存中" @input="stop" /></label>
       <button class="quiet" @click="logout">清除令牌与会话</button>
     </section>
     <section>

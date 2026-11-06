@@ -1,4 +1,4 @@
-# 第八课安全自查（部分已运行，其余阻塞）
+﻿# 第八课安全自查（部分已运行，其余阻塞）
 
 日期：2026-11-06。基线提交：c1a456f23d6a4e4875ab5bd5c54c96de2a4cf31c；检测对象为本工作分支，最终功能提交号见evidence/version-manifest.json。执行者：Codex（自动化执行）；真人负责人/复核人：待组员填写，未代签。
 
@@ -98,3 +98,14 @@ SEC-05/06：旧扫描与依赖基线保留；本机最新Git历史、构建、�
 SEC-07：未完成。技能调用未实现，尚无真实技能日志回查；字段缺口仍按原报告登记，不用worker日志替代。
 
 证据：evidence/permission-probe-deployed.json、permission-db-side-effects.txt、task-scope-probe.json、task-404-comparison.json、original-access-probe.json。
+
+
+<!-- closeout-evidence:4efb1502746524bdef9f14227fb52beb8e1b4e8414d08f55ffc7987cd4c09c4c -->
+## 第八课新增功能真实验收：2026-11-06T16:08:21+08:00
+
+手段：scripts.verify_lesson08_closeout，真实HTTP+PostgreSQL；具体身份、状态码、条数、run_id和日志字段见reports/evidence/lesson08-closeout-20261106-160723.json。源码指纹亦在原始报告。
+查了什么：密码登录、授权关键词召回、实际AI配置写入口、资料查询子技能和日志回查。
+判据/实际：A身份召回自身唯一标记资料，B使用者/管理员召回0；普通使用者修改真实配置403且配置/审计无变化；管理员配置幂等；技能调用及本人日志可查、跨实验室日志404。
+用量口径：本技能直接检索授权原文，无LLM调用，日志显式记录llm_called=false、0tokens与真实召回数，不冒充DeepSeek调用用量。
+结果：本次报告中19项全部green。原文访问等原有实验继续引用旧证据，不覆盖。此为最小关键词检索与资料查询子技能，不是完整混合RAG/全部三技能。
+真人交叉评审、换机复现及安全统一命令的执行结果独立记录，不能从自动验收推断完成。旧红项原样保留。

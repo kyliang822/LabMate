@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "20261106T080829Z",
+  "head": "78682cc1691f6dcd8e657cc283322c269ccf10d1",
+  "dirty": true,
+  "artifacts": {
+    "secrets": "reports\\evidence\\security-20261106T080829Z-secrets.json",
+    "pip_audit": "reports\\evidence\\security-20261106T080829Z-pip-audit.json",
+    "npm_audit": "reports\\evidence\\security-20261106T080829Z-npm-audit.json"
+  },
+  "pip_audit_exit": 1,
+  "npm_audit_exit": 1,
+  "exit_code": 1
+}

@@ -35,6 +35,10 @@ def setup(tmp_path, monkeypatch):
         db.execute('INSERT INTO devices VALUES (%s,%s,%s)', (device, labs[1], 'fictional device'))
     yield tokens, device, tmp_path, users
     with connect() as db:
+        db.execute('DELETE FROM skill_runs WHERE actor_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM ai_config_audit WHERE user_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM ai_config_commands WHERE user_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM ai_configs WHERE lab_id=ANY(%s)', (labs,))
         db.execute('DELETE FROM task_commands WHERE user_id=ANY(%s)', (users,))
         db.execute('DELETE FROM task_dead_letters WHERE task_id IN (SELECT id FROM async_tasks WHERE user_id=ANY(%s))', (users,))
         db.execute('UPDATE materials SET current_version_id=NULL WHERE owner_id=ANY(%s)', (users,))

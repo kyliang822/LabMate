@@ -1,6 +1,8 @@
 """Course SEC-05/06 baseline. Records findings without upgrading or fixing dependencies."""
 import argparse
 import json
+import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -12,7 +14,9 @@ EVIDENCE = ROOT / 'reports/evidence'
 
 
 def run(args, cwd=ROOT):
-    return subprocess.run(args, cwd=cwd, capture_output=True, text=True)
+    env = {**os.environ, 'PYTHONUTF8': '1', 'PYTHONIOENCODING': 'utf-8'}
+    return subprocess.run(args, cwd=cwd, capture_output=True, text=True,
+                          encoding='utf-8', errors='strict', env=env)
 
 
 def scan_directory(directory, scope):
@@ -106,7 +110,7 @@ def main():
               'dirty': bool(run(['git', 'status', '--porcelain']).stdout), 'artifacts': {}}
     secret = secrets_scan()
     path = str(prefix) + '-secrets.json'
-    Path(path).write_text(json.dumps(secret, indent=2, ensure_ascii=False))
+    Path(path).write_text(json.dumps(secret, indent=2, ensure_ascii=False), encoding="utf-8")
     status['artifacts']['secrets'] = str(Path(path).relative_to(ROOT))
     code = 1 if secret['unreviewed_count'] else (2 if secret['partial'] else 0)
     if not args.secrets_only:
@@ -116,7 +120,12 @@ def main():
         status['artifacts']['pip_audit'] = str(Path(path).relative_to(ROOT))
         status['pip_audit_exit'] = result.returncode
         code = max(code, int(result.returncode != 0))
-        npm = run(['npm', 'audit', '--json'], cwd=ROOT / 'web')
+        npm_path = shutil.which('npm.cmd' if os.name == 'nt' else 'npm')
+        if not npm_path:
+            raise SystemExit('BLOCKED: npm is required; install Node.js first.')
+        npm_args = ([os.environ.get('COMSPEC', 'cmd.exe'), '/d', '/c', 'npm.cmd', 'audit', '--json']
+                    if os.name == 'nt' else [npm_path, 'audit', '--json'])
+        npm = run(npm_args, cwd=ROOT / 'web')
         path = str(prefix) + '-npm-audit.json'
         Path(path).write_text(npm.stdout or json.dumps({'error': 'no audit output'}))
         status['artifacts']['npm_audit'] = str(Path(path).relative_to(ROOT))

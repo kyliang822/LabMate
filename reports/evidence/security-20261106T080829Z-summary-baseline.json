@@ -1,0 +1,24 @@
+{
+  "source_summary": "reports\\evidence\\security-20261106T080829Z-summary.json",
+  "head": "78682cc1691f6dcd8e657cc283322c269ccf10d1",
+  "secrets_candidates": 0,
+  "secret_partial": false,
+  "python_raw_count": 28,
+  "python_unique_count": 14,
+  "python_severity_counts": {
+    "critical": 0,
+    "high": 5,
+    "moderate": 4,
+    "low": 2,
+    "unknown": 3
+  },
+  "npm": {
+    "info": 0,
+    "low": 0,
+    "moderate": 3,
+    "high": 0,
+    "critical": 0,
+    "total": 3
+  },
+  "severity_note": "Only reuse previous primary-source classifications for identical IDs; unknown stays unknown."
+}

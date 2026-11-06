@@ -1,4 +1,4 @@
-# 安全资产基线：课程SEC-05/06
+﻿# 安全资产基线：课程SEC-05/06
 
 本课只观察并登记处置，不提前升级修复。无真实密钥命中；若发现真实密钥，立即由所有者轮换并协调清理历史，不在本报告展示明文。
 
@@ -70,3 +70,13 @@ Python原始28条记录，按包和公告ID去重14条。
 - 详细结果：evidence/security-20261106T074255Z-secrets.json。
 - 扫描时工作树非干净，具体范围以详细结果为准。
 - 本记录仅证明本轮密钥扫描完成，不代表依赖无漏洞或整课验收通过。
+
+
+<!-- unified-closeout:security-20261106T080829Z-summary.json -->
+## 新功能后的统一安全检查
+
+入口：`.\.venv\Scripts\python.exe -m scripts.check_security`；实际记录：reports/evidence/security-20261106T080829Z-summary.json。
+秘密扫描完整范围候选0，partial=false。
+Python原始28条，去重14条；严重0、高危5、中危4、低危2、未知3。未知不算低风险。
+前端统计：{"info": 0, "low": 0, "moderate": 3, "high": 0, "critical": 0, "total": 3}。
+细节：reports/evidence/security-20261106T080829Z-summary-baseline.json及summary关联原始输出。发现导致非零退出保留；本课不自动修复、旧基线保留。尚需真人独立复核。

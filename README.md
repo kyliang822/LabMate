@@ -71,3 +71,12 @@
 | 规约目录 | `openspec/` 已存在，但入口仅为占位 | 补充项目规约入口；具体功能规约仍需在实现前逐项编写 |
 
 本轮在工作分支分别记录功能实现与安全自查本地提交，未推送、未合并、未创建验收标签。
+
+
+<!-- lesson08-closeout -->
+## 第八课最小闭环新增入口
+
+运行与真人复核说明：docs/closeout/lesson08-fast.md。
+Windows统一安全命令：`.\.venv\Scripts\python.exe -m scripts.check_security`，同时覆盖SEC-05秘密扫描和SEC-06 Python/npm依赖审计；新结果按时间戳保存reports/evidence/，发现和阻塞保留非零退出码。
+一键安装/真实验收：`powershell -NoProfile -ExecutionPolicy Bypass -File .\Complete-Lesson08.ps1`。
+新增关键词检索、受保护的实际配置写入口、密码登录和资料查询子技能；旧安全红项不提前修复。真实LLM问答/完整三技能仍属后续范围，真人复核不代签。

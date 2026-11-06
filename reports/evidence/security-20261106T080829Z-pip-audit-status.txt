@@ -1,0 +1,2 @@
+exit_code=1
+Found 28 known vulnerabilities in 3 packages
