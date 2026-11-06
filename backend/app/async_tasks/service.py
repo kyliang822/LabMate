@@ -39,9 +39,9 @@ def validate_file(filename, content):
     return ext
 
 
-def submit(actor, device_id, key, content, ext, request_id):
+def submit(actor, device_id, key, content, ext, request_id, material_id=None):
     checksum = hashlib.sha256(content).hexdigest()
-    payload = hashlib.sha256(f'{device_id}:{ext}:{checksum}'.encode()).hexdigest()
+    payload = hashlib.sha256(f'{device_id}:{material_id}:{ext}:{checksum}'.encode()).hexdigest()
     storage = None
     try:
         with connect() as db:
@@ -53,10 +53,24 @@ def submit(actor, device_id, key, content, ext, request_id):
             old = db.execute('SELECT id,payload_hash FROM async_tasks WHERE user_id=%s AND operation=%s AND idempotency_key=%s',
                              (actor['id'], 'material.create', key)).fetchone()
             if old:
-                if old['payload_hash'] != payload:
+                legacy = hashlib.sha256(f'{device_id}:{ext}:{checksum}'.encode()).hexdigest()
+                if old['payload_hash'] != payload and not (material_id is None and old['payload_hash'] == legacy):
                     raise HTTPException(409, 'idempotency_conflict')
                 return str(old['id'])
-            task_id, material_id = uuid.uuid4(), uuid.uuid4()
+            task_id, version_id = uuid.uuid4(), uuid.uuid4()
+            if material_id:
+                material = db.execute('''SELECT * FROM materials WHERE id=%s AND lab_id=%s
+                    AND deleted_at IS NULL FOR UPDATE''', (material_id, actor['lab_id'])).fetchone()
+                if not material:
+                    raise HTTPException(404, 'not_found')
+                if material['device_id'] != device_id:
+                    raise HTTPException(409, 'material_device_mismatch')
+                version = db.execute('SELECT coalesce(max(version),0)+1 AS n FROM material_versions WHERE material_id=%s',
+                                     (material_id,)).fetchone()['n']
+            else:
+                material_id, version = uuid.uuid4(), 1
+                db.execute('INSERT INTO materials(id,lab_id,owner_id,device_id) VALUES (%s,%s,%s,%s)',
+                           (material_id, actor['lab_id'], actor['id'], device_id))
             directory = Path(os.environ.get('UPLOAD_DIR', 'uploads'))
             directory.mkdir(parents=True, exist_ok=True)
             storage_key = f'{uuid.uuid4()}{ext}'
@@ -66,15 +80,18 @@ def submit(actor, device_id, key, content, ext, request_id):
                 stream.flush()
                 os.fsync(stream.fileno())
             db.execute('''INSERT INTO material_versions
-                (id,lab_id,device_id,owner_id,storage_key,sha256,media_type) VALUES (%s,%s,%s,%s,%s,%s,%s)''',
-                (material_id, actor['lab_id'], device_id, actor['id'], storage_key, checksum, ext[1:]))
+                (id,lab_id,device_id,owner_id,storage_key,sha256,media_type,material_id,version) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)''',
+                (version_id, actor['lab_id'], device_id, actor['id'], storage_key, checksum, ext[1:], material_id, version))
             db.execute('''INSERT INTO async_tasks
                 (id,material_id,user_id,lab_id,idempotency_key,payload_hash) VALUES (%s,%s,%s,%s,%s,%s)''',
-                (task_id, material_id, actor['id'], actor['lab_id'], key, payload))
+                (task_id, version_id, actor['id'], actor['lab_id'], key, payload))
             db.execute('INSERT INTO task_outbox(task_id) VALUES (%s)', (task_id,))
             db.execute('INSERT INTO task_audit(id,actor_id,task_id,action,request_id) VALUES (%s,%s,%s,%s,%s)',
                        (uuid.uuid4(), actor['id'], task_id, 'material.queued', request_id))
         return str(task_id)
+    except (psycopg.OperationalError, psycopg.InterfaceError):
+        # Commit outcome may be unknown after disconnect. Keep file for reference-checked cleanup.
+        raise
     except BaseException:
         if storage:
             storage.unlink(missing_ok=True)

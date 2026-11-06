@@ -1,0 +1,36 @@
+name: Lesson08 module checks (not full acceptance)
+on: [push, pull_request]
+jobs:
+  local:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm, cache-dependency-path: web/package-lock.json}
+      - run: pip install -r requirements-dev.txt
+      - run: npm ci --prefix web
+      - run: make check-local
+      - name: Save security baseline (findings keep this check red)
+        run: make check-security
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: security-baseline, path: reports/evidence/}
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env: {POSTGRES_USER: labmate, POSTGRES_PASSWORD: ci-fictional-only, POSTGRES_DB: labmate_test}
+        ports: ['5432:5432']
+        options: --health-cmd "pg_isready -U labmate" --health-interval 3s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://labmate:ci-fictional-only@localhost/labmate_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements-dev.txt
+      - run: make test-async

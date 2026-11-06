@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 def publish_once(client):
     with connect() as db:
-        row = db.execute('''SELECT task_id FROM task_outbox WHERE published_at IS NULL
+        row = db.execute('''SELECT task_id FROM task_outbox WHERE published_at IS NULL AND available_at<=now()
             ORDER BY created_at FOR UPDATE SKIP LOCKED LIMIT 1''').fetchone()
         if not row:
             return False

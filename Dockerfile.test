@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt requirements-dev.txt ./
 RUN pip install --no-cache-dir -r requirements-dev.txt
 COPY . .
-CMD ["python", "-m", "pytest", "-q", "tests/unit/test_async_validation.py", "tests/integration/test_async_foundation.py"]
+CMD ["python", "-m", "pytest", "-q", "tests/unit", "tests/integration"]

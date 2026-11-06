@@ -3,3 +3,8 @@ uvicorn==0.34.0
 psycopg[binary]==3.2.13
 celery[redis]==5.4.0
 python-multipart==0.0.20
+pypdf==6.21.4
+packaging==26.3
+
+kombu==5.4.2
+redis==5.3.1

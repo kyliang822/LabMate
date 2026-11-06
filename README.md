@@ -4,9 +4,21 @@
 
 ## 当前状态
 
-已编写第 8 课前半（五步中的第 1～3 步）的 Redis/PostgreSQL 配置、版本化迁移、鉴权资料提交 API 和事务发件箱转发器。消费者、状态查询与重试留给下一成员；其余业务仍是框架占位。当前环境缺 Docker，未验证容器或真实数据库链路，不能视为已部署或已验收。
+已编写Lesson08异步提交及消费者接续：版本化迁移、资料解析/切分/外部嵌入、原子发布、任务查询与重试、恢复命令和Vue任务演示页。已有31项单元/接口入口测试通过，前端类型与生产构建通过；真实PostgreSQL/pgvector、Redis故障、Compose、真实嵌入和真人交叉验收尚未完成，不能视为可发布。
 
-启动、分工和消费者接入见 [第 8 课交接说明](docs/runbooks/lesson08-foundation.md)，规约见 [本次变更](openspec/changes/lesson08-async-foundation/proposal.md)，验证结果见 [检查记录](reports/lesson08-foundation.md)。
+七项安全自查按正式课程要求只记录现象，不提前修复（明文密钥例外）。当前依赖存在真实红项，原始报告保留。正式登录、预约、工单、完整检索/问答、技能/MCP仍未实现。
+
+- [启动与消费者运行手册](docs/runbooks/lesson08-consumer.md)
+- [原Lesson08交接](docs/runbooks/lesson08-foundation.md)
+- [模块检查记录](reports/lesson08-foundation.md)
+- [七项安全自查](reports/security-precheck.md)、[资产基线](reports/security-baseline.md)
+- [自审](docs/reviews/lesson08-self-review.md)、[真人交叉评审待办](reports/review-01.md)
+
+### 本模块快速开始
+
+安装Docker/Compose，复制.env.example到.env并仅在本机填数据库密码和真实嵌入配置，运行`docker compose up -d --build`，访问http://localhost:8080。一次性演示令牌按runbook在私密终端签发；令牌只存页面内存。旧数据卷先备份，在副本核验0003迁移，不直接覆盖唯一数据。
+
+本地开发检查：安装requirements-dev.txt与web锁定依赖后，`make check-local`运行静态、单元、前端类型/构建；`make test-async`明确要求真实独立PostgreSQL/pgvector测试库。`make check-security`至少覆盖全Git历史/实际构建产物/实际日志的密钥检测及Python/npm依赖审计，原始输出到reports/evidence/；发现与阻塞均返回非零。不要把局部通过写成完整make check通过。
 
 ## 项目目标与范围
 
@@ -22,7 +34,7 @@
 - AI 与工具：兼容模型接口、三项可配置技能、独立 MCP Server。
 - 异步与部署：Redis、Celery、Docker Compose；使用 OpenSpec 管理需求与验收规约。
 
-以上是选题方案，并非已安装或实现的依赖清单。现有前端 `.tsx` 占位文件与 Vue 3 方案不一致，正式实现前须在规约中确定技术栈，再统一文件格式与构建配置。
+以上是选题方案，并非已安装或实现的依赖清单。本次正式异步演示页位于 `web/`，采用 Vue 3 + TypeScript；原 `frontend/` 的 TSX 文件仍为历史占位，不参与构建。完整业务前端后续统一迁入 Vue 实现。
 
 ## 目录导航
 
@@ -31,13 +43,13 @@
 | [AGENTS.md](AGENTS.md) | 仓库级开发规则与规范索引 |
 | [docs/standards/](docs/standards/) | 八份开发规范，含检查判据 |
 | [openspec/project.md](openspec/project.md) | 项目规约入口、范围与功能规约编写约定 |
-| `frontend/` | 前端页面、组件与 API 调用占位 |
+| `web/`、`frontend/` | Vue任务页及构建；旧TSX仅历史占位 |
 | `backend/` | 本次资料提交实现及其余业务占位 |
 | `ai_service/` | 智能体、检索、提示词及技能占位 |
-| `mcp_server/`、`worker/` | MCP 工具及异步任务占位 |
-| `migrations/` | 0001 为历史占位，0002 为异步基础迁移 |
-| `tests/` | 单元、集成、端到端及 AI 评测占位 |
-| `docs/runbooks/`、`docs/evaluations/`、`reports/` | 部署说明、评测说明及验收报告占位 |
+| `mcp_server/`、`worker/` | MCP仍占位；worker接续实现待真实链路验证 |
+| `migrations/` | 0001历史占位、0002提交基础、0003版本/向量/重试模型 |
+| `tests/` | 异步单元与真实库测试已编写；业务/E2E/AI多数仍占位 |
+| `docs/runbooks/`、`docs/evaluations/`、`reports/` | 异步手册、自查/风险证据；完整部署和AI评测仍待补 |
 | `compose.yaml`、`Makefile`、`.env.example` | 异步基础配置与局部检查，完整部署待补齐 |
 
 ## 开发流程与验证
@@ -49,7 +61,7 @@
 
 真实密钥仅放在本地环境变量或被忽略的 `.env` 文件中；`.env.example` 只保存配置名称与占位值。
 
-## 本次仓库基础检查
+## 初始仓库基础检查（历史记录）
 
 | 老师提出的检查项 | 修正前状态 | 本次处理 |
 | --- | --- | --- |
@@ -58,4 +70,4 @@
 | 规范落入规则文件 | `AGENTS.md` 为空 | 写入常驻约束、开发流程和八份规范的适用索引 |
 | 规约目录 | `openspec/` 已存在，但入口仅为占位 | 补充项目规约入口；具体功能规约仍需在实现前逐项编写 |
 
-当前目录已有 Git 元数据；本次不创建提交、验收标签或合并。
+本轮在工作分支分别记录功能实现与安全自查本地提交，未推送、未合并、未创建验收标签。

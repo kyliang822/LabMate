@@ -3,6 +3,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY backend backend
+COPY worker worker
 COPY scripts scripts
 COPY migrations migrations
 RUN useradd --uid 10001 --create-home labmate && mkdir /uploads && chown labmate /uploads

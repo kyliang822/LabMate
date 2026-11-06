@@ -16,7 +16,8 @@ from scripts.migrate import main as migrate
 
 @pytest.fixture
 def setup(tmp_path, monkeypatch):
-    assert os.environ.get('DATABASE_URL'), 'DATABASE_URL must point at an isolated PostgreSQL test DB'
+    if not os.environ.get('DATABASE_URL'):
+        pytest.fail('DATABASE_URL must point at an isolated PostgreSQL test DB', pytrace=False)
     migrate()
     migrate()
     monkeypatch.setenv('UPLOAD_DIR', str(tmp_path))
@@ -34,10 +35,15 @@ def setup(tmp_path, monkeypatch):
         db.execute('INSERT INTO devices VALUES (%s,%s,%s)', (device, labs[1], 'fictional device'))
     yield tokens, device, tmp_path, users
     with connect() as db:
+        db.execute('DELETE FROM task_commands WHERE user_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM task_dead_letters WHERE task_id IN (SELECT id FROM async_tasks WHERE user_id=ANY(%s))', (users,))
+        db.execute('UPDATE materials SET current_version_id=NULL WHERE owner_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM material_chunks WHERE version_id IN (SELECT id FROM material_versions WHERE owner_id=ANY(%s))', (users,))
         db.execute('DELETE FROM task_audit WHERE actor_id=ANY(%s)', (users,))
         db.execute('DELETE FROM task_outbox WHERE task_id IN (SELECT id FROM async_tasks WHERE user_id=ANY(%s))', (users,))
         db.execute('DELETE FROM async_tasks WHERE user_id=ANY(%s)', (users,))
         db.execute('DELETE FROM material_versions WHERE owner_id=ANY(%s)', (users,))
+        db.execute('DELETE FROM materials WHERE owner_id=ANY(%s)', (users,))
         db.execute('DELETE FROM access_tokens WHERE user_id=ANY(%s)', (users,))
         db.execute('DELETE FROM app_users WHERE id=ANY(%s)', (users,))
         db.execute('DELETE FROM devices WHERE id=%s', (device,))
@@ -86,8 +92,8 @@ def test_concurrent_submission_and_constraints(setup):
         with pytest.raises(psycopg.errors.UniqueViolation) as duplicate:
             with db.transaction():
                 new_material = uuid.uuid4()
-                db.execute('''INSERT INTO material_versions(id,lab_id,owner_id,storage_key,sha256,media_type)
-                    SELECT %s,lab_id,owner_id,%s,sha256,media_type FROM material_versions WHERE id=%s''',
+                db.execute('''INSERT INTO material_versions(id,lab_id,owner_id,storage_key,sha256,media_type,material_id,version)
+                    SELECT %s,lab_id,owner_id,%s,sha256,media_type,material_id,version+1 FROM material_versions WHERE id=%s''',
                     (new_material, str(uuid.uuid4()), task['material_id']))
                 db.execute('''INSERT INTO async_tasks(id,material_id,user_id,lab_id,idempotency_key,payload_hash)
                     SELECT %s,%s,user_id,lab_id,idempotency_key,payload_hash FROM async_tasks WHERE id=%s''',
