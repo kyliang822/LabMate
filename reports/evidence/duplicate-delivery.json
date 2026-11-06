@@ -1,0 +1,17 @@
+{
+  "before": {
+    "status": "ready",
+    "attempts": 3,
+    "chunk_count": 1,
+    "result_digest": "d887baed449867d4f6a40869d352f0b35f27447e62d3872868a2bded8e345286",
+    "ready_events": 1
+  },
+  "after": {
+    "status": "ready",
+    "attempts": 4,
+    "chunk_count": 1,
+    "result_digest": "d887baed449867d4f6a40869d352f0b35f27447e62d3872868a2bded8e345286",
+    "ready_events": 1
+  },
+  "result": "green"
+}

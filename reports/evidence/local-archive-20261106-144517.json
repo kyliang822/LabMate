@@ -1,0 +1,55 @@
+﻿{
+    "captured_at":  "2026-11-06 14:45:17 +08:00",
+    "head":  "c1a456f23d6a4e4875ab5bd5c54c96de2a4cf31c",
+    "note":  "HEAD plus current working tree; no commit or peer-review claim",
+    "files":  [
+                  {
+                      "sha256":  "77FAD81ECC646F549CABC355BA6258EE1EA58A0452CCBAF4CE3E0699026C004D",
+                      "path":  "reports\\evidence\\permission-probe-deployed.json"
+                  },
+                  {
+                      "sha256":  "B56631325F6DEE2B65E86E0A22D4CBE6C26630EA521ECFEFAA793F25F11239EB",
+                      "path":  "reports\\evidence\\permission-db-side-effects.txt"
+                  },
+                  {
+                      "sha256":  "EF43DD6B33E0814C070C24C964528337466A3E0826EC7469F5A3FD660F9944C6",
+                      "path":  "reports\\evidence\\task-scope-probe.json"
+                  },
+                  {
+                      "sha256":  "D1F1416B29D190A1050C94A4CC3998DD359A3D84C8E3693D6663491860317CA7",
+                      "path":  "reports\\evidence\\task-404-comparison.json"
+                  },
+                  {
+                      "sha256":  "ED4A53934F657A1DE3C8145D02C4BD225D5DBF4E07E22CB6C32627AE1474C6B1",
+                      "path":  "reports\\evidence\\original-access-probe.json"
+                  },
+                  {
+                      "sha256":  "150588213CBBADF6B1DF3CD25113E7D5A3F75C348078A0E8FA254A13EA25AECA",
+                      "path":  "reports\\evidence\\concurrent-submission.json"
+                  },
+                  {
+                      "sha256":  "A259FA304DB3F4AA91ABCC9290BD97896B154D5CFED7978BEBAD170D1127AE35",
+                      "path":  "reports\\evidence\\duplicate-delivery.json"
+                  },
+                  {
+                      "sha256":  "870C8EC9A8A4C79DFBC564BD2342E923A4F62D9902C91CDBEAA3399F7BBCA04F",
+                      "path":  "reports\\evidence\\worker-stop-before.json"
+                  },
+                  {
+                      "sha256":  "9C136518A14F0E11C9CF52F13BCDF694BE0087CEFD70D75D977B0D6A2771E73A",
+                      "path":  "reports\\evidence\\worker-stop-after.json"
+                  },
+                  {
+                      "sha256":  "56E52F651372B14948EF3D4BD35E3FD8D21BB9A9758F38B8258517A7E11C6673",
+                      "path":  "reports\\evidence\\submission-p95.json"
+                  },
+                  {
+                      "sha256":  "71A5331FFACEAE04C9CD485F52C58C370A90F9E4D432E5C7F2E19531B7F9A5C8",
+                      "path":  "reports\\evidence\\submission-processing-comparison.json"
+                  },
+                  {
+                      "sha256":  "016904AEC35D96EFE33F1684C2527CEF3D5831525B02BB030271F236DA069014",
+                      "path":  "reports\\evidence\\integration-after-dependency-fix.txt"
+                  }
+              ]
+}

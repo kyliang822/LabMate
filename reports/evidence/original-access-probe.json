@@ -1,0 +1,33 @@
+[
+  {
+    "identity": "userA1",
+    "expected": 200,
+    "actual": 200,
+    "body": {
+      "byte_count": 50
+    },
+    "result": "green"
+  },
+  {
+    "identity": "userB1",
+    "expected": 404,
+    "actual": 404,
+    "body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "matches_missing_resource": true,
+    "result": "green"
+  },
+  {
+    "identity": "adminB",
+    "expected": 404,
+    "actual": 404,
+    "body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "matches_missing_resource": true,
+    "result": "green"
+  }
+]

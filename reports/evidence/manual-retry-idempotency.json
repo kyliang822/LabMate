@@ -1,0 +1,29 @@
+{
+  "task_id": "91feaa76-d729-4155-9927-1c183d1086ca",
+  "responses": [
+    {
+      "http_status": 202,
+      "body": {
+        "task_id": "91feaa76-d729-4155-9927-1c183d1086ca",
+        "status": "accepted"
+      }
+    },
+    {
+      "http_status": 202,
+      "body": {
+        "task_id": "91feaa76-d729-4155-9927-1c183d1086ca",
+        "status": "accepted"
+      }
+    }
+  ],
+  "cycle_before": 0,
+  "cycle_after": 1,
+  "retry_command_count": 1,
+  "task_after": {
+    "status": "queued",
+    "cycle": 1,
+    "attempts": 1,
+    "error_code": null
+  },
+  "result": "green"
+}

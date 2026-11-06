@@ -1,0 +1,33 @@
+{
+  "responses": [
+    {
+      "http_status": 202,
+      "body": {
+        "task_id": "4389918a-a5e2-4e6d-86f5-804fe9492fca",
+        "status": "accepted"
+      }
+    },
+    {
+      "http_status": 202,
+      "body": {
+        "task_id": "4389918a-a5e2-4e6d-86f5-804fe9492fca",
+        "status": "accepted"
+      }
+    }
+  ],
+  "changed_content": {
+    "http_status": 409,
+    "body": {
+      "code": "idempotency_conflict",
+      "message": "idempotency_conflict",
+      "request_id": "c7c1a7d3-618f-4175-acda-ff84ab69c3e9"
+    }
+  },
+  "database_counts": {
+    "tasks": 1,
+    "versions": 1,
+    "outbox": 1,
+    "submission_audit": 1
+  },
+  "result": "green"
+}

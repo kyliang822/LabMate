@@ -1,0 +1,95 @@
+[
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "POST",
+    "path": "/api/v1/materials",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "30074141-3df7-43ed-a55a-9941a498e690"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/materials",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "b101346f-ddf7-476c-b1d3-8ddd2a53390b"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/tasks",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "dd5a8ca9-cb6d-4282-91c0-e4c8ef998fcd"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/tasks/00000000-0000-0000-0000-000000000064",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "90409000-45fc-4b99-8814-4ca96e5a24c5"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "POST",
+    "path": "/api/v1/tasks/00000000-0000-0000-0000-000000000064/retry",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "469185ec-32fd-4a03-9629-8ef954664c3b"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/materials/00000000-0000-0000-0000-000000000064/versions/1/original",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "31301f63-9bb3-489d-a03a-a0d13585e084"
+    }
+  },
+  {
+    "check": "SEC-04",
+    "identity": "userA1",
+    "operation": "direct admin upload",
+    "expected": 403,
+    "actual": 403,
+    "result": "green",
+    "side_effect_verification": "must additionally inspect DB as documented"
+  }
+]

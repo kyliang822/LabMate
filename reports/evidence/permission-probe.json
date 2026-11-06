@@ -1,0 +1,86 @@
+[
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "POST",
+    "path": "/api/v1/materials",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "f55df7da-ee4f-44ff-bbcf-93e040b8807c"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/materials",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "467a47b6-a16d-4e17-8d3f-a9a4b44755e5"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/tasks",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "d011e69c-67f1-4ef7-9756-30058498709b"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/tasks/00000000-0000-0000-0000-000000000064",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "42447b74-6c95-4b3a-8b33-567183e7c696"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "POST",
+    "path": "/api/v1/tasks/00000000-0000-0000-0000-000000000064/retry",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "e205a2d7-f8c0-4f7e-b3dd-9c897e46f8a6"
+    }
+  },
+  {
+    "check": "SEC-01",
+    "identity": "anonymous",
+    "method": "GET",
+    "path": "/api/v1/materials/00000000-0000-0000-0000-000000000064/versions/1/original",
+    "expected": 401,
+    "actual": 401,
+    "result": "green",
+    "body": {
+      "code": "unauthorized",
+      "message": "unauthorized",
+      "request_id": "bfc0c6ce-f1e5-4cdd-b5c7-5b5792b8fd37"
+    }
+  }
+]

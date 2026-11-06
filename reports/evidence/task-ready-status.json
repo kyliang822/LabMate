@@ -1,0 +1,11 @@
+{
+  "task_id": "91feaa76-d729-4155-9927-1c183d1086ca",
+  "status": "ready",
+  "stage": "store",
+  "attempts": 3,
+  "retries": 0,
+  "cycle": 2,
+  "error_code": null,
+  "started_at": "2026-11-06 06:02:58.451847+00:00",
+  "finished_at": "2026-11-06 06:02:58.747045+00:00"
+}

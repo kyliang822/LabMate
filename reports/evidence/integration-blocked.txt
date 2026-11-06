@@ -1,0 +1,40 @@
+EEEEEEEEEE                                                               [100%]
+==================================== ERRORS ====================================
+__________________ ERROR at setup of test_identity_and_scope ___________________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+_________ ERROR at setup of test_concurrent_submission_and_constraints _________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+____________________ ERROR at setup of test_outbox_rollback ____________________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+____________ ERROR at setup of test_duplicate_success_is_idempotent ____________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+__________ ERROR at setup of test_scope_and_manual_retry_are_real_db ___________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+_______ ERROR at setup of test_transient_failure_stops_after_two_retries _______
+DATABASE_URL must point at an isolated PostgreSQL test DB
+_ ERROR at setup of test_concurrent_duplicate_and_recovery_do_not_steal_owner __
+DATABASE_URL must point at an isolated PostgreSQL test DB
+____________ ERROR at setup of test_old_version_cannot_replace_new _____________
+DATABASE_URL must point at an isolated PostgreSQL test DB
+______ ERROR at setup of test_store_audit_failure_rolls_back_publication _______
+DATABASE_URL must point at an isolated PostgreSQL test DB
+_ ERROR at setup of test_redelivery_counts_crashed_attempt_and_stops_poison_loop _
+DATABASE_URL must point at an isolated PostgreSQL test DB
+=============================== warnings summary ===============================
+../.venv/lib/python3.12/site-packages/starlette/testclient.py:40
+  /workspace/scratch/3b9731c8b228/.venv/lib/python3.12/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/integration/test_async_foundation.py::test_identity_and_scope - F...
+ERROR tests/integration/test_async_foundation.py::test_concurrent_submission_and_constraints
+ERROR tests/integration/test_async_foundation.py::test_outbox_rollback - Fail...
+ERROR tests/integration/test_consumer_db.py::test_duplicate_success_is_idempotent
+ERROR tests/integration/test_consumer_db.py::test_scope_and_manual_retry_are_real_db
+ERROR tests/integration/test_consumer_db.py::test_transient_failure_stops_after_two_retries
+ERROR tests/integration/test_consumer_db.py::test_concurrent_duplicate_and_recovery_do_not_steal_owner
+ERROR tests/integration/test_consumer_db.py::test_old_version_cannot_replace_new
+ERROR tests/integration/test_consumer_db.py::test_store_audit_failure_rolls_back_publication
+ERROR tests/integration/test_consumer_db.py::test_redelivery_counts_crashed_attempt_and_stops_poison_loop
+1 warning, 10 errors in 0.10s

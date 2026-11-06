@@ -1,0 +1,29 @@
+../.venv/bin/python -m ruff check backend worker scripts tests ai_service mcp_server
+All checks passed!
+make test-unit PYTHON=../.venv/bin/python
+make[1]: Entering directory '/workspace/scratch/3b9731c8b228/LabMate'
+../.venv/bin/python -m pytest -q tests/unit
+...............................                                          [100%]
+=============================== warnings summary ===============================
+../.venv/lib/python3.12/site-packages/starlette/testclient.py:40
+  /workspace/scratch/3b9731c8b228/.venv/lib/python3.12/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+31 passed, 1 warning in 0.42s
+make[1]: Leaving directory '/workspace/scratch/3b9731c8b228/LabMate'
+npm --prefix web run build
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> labmate-task-console@0.1.0 build
+> vue-tsc --noEmit && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 11 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  0.37 kB │ gzip:  0.29 kB
+dist/assets/index-rSwNoLSP.css   0.94 kB │ gzip:  0.51 kB
+dist/assets/index-ouQ6a_EH.js   71.35 kB │ gzip: 28.67 kB
+✓ built in 637ms

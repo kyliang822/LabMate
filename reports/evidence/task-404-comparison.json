@@ -1,0 +1,30 @@
+[
+  {
+    "identity": "userA1",
+    "denied_status": 404,
+    "missing_status": 404,
+    "denied_body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "missing_body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "result": "green"
+  },
+  {
+    "identity": "adminB",
+    "denied_status": 404,
+    "missing_status": 404,
+    "denied_body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "missing_body": {
+      "code": "not_found",
+      "message": "not_found"
+    },
+    "result": "green"
+  }
+]

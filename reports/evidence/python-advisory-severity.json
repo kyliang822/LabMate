@@ -1,0 +1,237 @@
+{
+  "counts": {
+    "critical": 0,
+    "high": 6,
+    "moderate": 5,
+    "low": 3,
+    "unknown": 0
+  },
+  "advisories": [
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-1852",
+      "fixed_versions": [
+        "0.0.22"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-wp53-j4wj-2cfg",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:L",
+        "score": 8.6
+      },
+      "html_url": "https://github.com/advisories/GHSA-wp53-j4wj-2cfg",
+      "ghsa_id": "GHSA-wp53-j4wj-2cfg"
+    },
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-3038",
+      "fixed_versions": [
+        "0.0.26"
+      ],
+      "severity": "moderate",
+      "source": "https://api.github.com/advisories/GHSA-mj87-hwqh-73pj",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+        "score": 5.3
+      },
+      "html_url": "https://github.com/advisories/GHSA-mj87-hwqh-73pj",
+      "ghsa_id": "GHSA-mj87-hwqh-73pj"
+    },
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-3039",
+      "fixed_versions": [
+        "0.0.27"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-pp6c-gr5w-3c5g",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-pp6c-gr5w-3c5g",
+      "ghsa_id": "GHSA-pp6c-gr5w-3c5g"
+    },
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-3040",
+      "fixed_versions": [
+        "0.0.31"
+      ],
+      "severity": "low",
+      "source": "https://api.github.com/advisories/GHSA-v9pg-7xvm-68hf",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+        "score": 3.7
+      },
+      "html_url": "https://github.com/advisories/GHSA-v9pg-7xvm-68hf",
+      "ghsa_id": "GHSA-v9pg-7xvm-68hf"
+    },
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-3036",
+      "fixed_versions": [
+        "0.0.30"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-5rvq-cxj2-64vf",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-5rvq-cxj2-64vf",
+      "ghsa_id": "GHSA-5rvq-cxj2-64vf"
+    },
+    {
+      "package": "python-multipart",
+      "version": "0.0.20",
+      "audit_id": "PYSEC-2026-3037",
+      "fixed_versions": [
+        "0.0.30"
+      ],
+      "severity": "low",
+      "source": "https://api.github.com/advisories/GHSA-6jv3-5f52-599m",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+        "score": 3.7
+      },
+      "html_url": "https://github.com/advisories/GHSA-6jv3-5f52-599m",
+      "ghsa_id": "GHSA-6jv3-5f52-599m"
+    },
+    {
+      "package": "pytest",
+      "version": "8.3.4",
+      "audit_id": "PYSEC-2026-1845",
+      "fixed_versions": [
+        "9.0.3"
+      ],
+      "severity": "moderate",
+      "source": "https://api.github.com/advisories/GHSA-6w46-j5rx-g56g",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+        "score": 6.8
+      },
+      "html_url": "https://github.com/advisories/GHSA-6w46-j5rx-g56g",
+      "ghsa_id": "GHSA-6w46-j5rx-g56g"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-1941",
+      "fixed_versions": [
+        "0.47.2"
+      ],
+      "severity": "moderate",
+      "source": "https://api.github.com/advisories/GHSA-2c2j-9gv5-cj73",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+        "score": 5.3
+      },
+      "html_url": "https://github.com/advisories/GHSA-2c2j-9gv5-cj73",
+      "ghsa_id": "GHSA-2c2j-9gv5-cj73"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-1942",
+      "fixed_versions": [
+        "0.49.1"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-7f5h-v6xp-fcq8",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-7f5h-v6xp-fcq8",
+      "ghsa_id": "GHSA-7f5h-v6xp-fcq8"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-161",
+      "fixed_versions": [
+        "1.0.1"
+      ],
+      "severity": "moderate",
+      "source": "https://api.github.com/advisories/GHSA-86qp-5c8j-p5mr",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+        "score": 6.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-86qp-5c8j-p5mr",
+      "ghsa_id": "GHSA-86qp-5c8j-p5mr"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-2281",
+      "fixed_versions": [
+        "1.1.0"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-wqp7-x3pw-xc5r",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "score": 7.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-wqp7-x3pw-xc5r",
+      "ghsa_id": "GHSA-wqp7-x3pw-xc5r"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-2280",
+      "fixed_versions": [
+        "1.1.0"
+      ],
+      "severity": "moderate",
+      "source": "https://api.github.com/advisories/GHSA-x746-7m8f-x49c",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+        "score": 5.3
+      },
+      "html_url": "https://github.com/advisories/GHSA-x746-7m8f-x49c",
+      "ghsa_id": "GHSA-x746-7m8f-x49c"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-249",
+      "fixed_versions": [
+        "1.3.1"
+      ],
+      "severity": "high",
+      "source": "https://api.github.com/advisories/GHSA-82w8-qh3p-5jfq",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "score": 7.5
+      },
+      "html_url": "https://github.com/advisories/GHSA-82w8-qh3p-5jfq",
+      "ghsa_id": "GHSA-82w8-qh3p-5jfq"
+    },
+    {
+      "package": "starlette",
+      "version": "0.41.3",
+      "audit_id": "PYSEC-2026-248",
+      "fixed_versions": [
+        "1.3.0"
+      ],
+      "severity": "low",
+      "source": "https://api.github.com/advisories/GHSA-jp82-jpqv-5vv3",
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+        "score": 3.7
+      },
+      "html_url": "https://github.com/advisories/GHSA-jp82-jpqv-5vv3",
+      "ghsa_id": "GHSA-jp82-jpqv-5vv3"
+    }
+  ],
+  "raw_record_count": 28,
+  "unique_advisory_count": 14
+}

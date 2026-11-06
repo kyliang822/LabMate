@@ -1,0 +1,173 @@
+{
+  "summary": {
+    "task_count": 20,
+    "ready_count": 20,
+    "all_20_ready": true,
+    "submission_p95_seconds": 0.0737905790001605,
+    "processing_min_seconds": 0.278249,
+    "processing_median_seconds": 0.3138685,
+    "processing_max_seconds": 0.442569
+  },
+  "tasks": [
+    {
+      "task_id": "543a4869-a1b9-4d90-87b6-77b7c7038bfb",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:53.539007+00:00",
+      "finished_at": "2026-11-06 06:13:53.967876+00:00",
+      "processing_seconds": "0.428869"
+    },
+    {
+      "task_id": "9c9fc470-efe6-4878-be82-c797bdc1f75b",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:53.571254+00:00",
+      "finished_at": "2026-11-06 06:13:53.970715+00:00",
+      "processing_seconds": "0.399461"
+    },
+    {
+      "task_id": "b7d6520c-a531-4db4-8c23-f99feb76f8e8",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:54.002287+00:00",
+      "finished_at": "2026-11-06 06:13:54.444856+00:00",
+      "processing_seconds": "0.442569"
+    },
+    {
+      "task_id": "c3740d2a-275b-4a10-be89-f63b6764c583",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:54.005843+00:00",
+      "finished_at": "2026-11-06 06:13:54.336986+00:00",
+      "processing_seconds": "0.331143"
+    },
+    {
+      "task_id": "85924715-a4e6-48d5-873e-388a5a0a2121",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:54.365539+00:00",
+      "finished_at": "2026-11-06 06:13:54.671272+00:00",
+      "processing_seconds": "0.305733"
+    },
+    {
+      "task_id": "2efdee86-81a9-40db-a835-7953d3050a64",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:54.641943+00:00",
+      "finished_at": "2026-11-06 06:13:54.998428+00:00",
+      "processing_seconds": "0.356485"
+    },
+    {
+      "task_id": "a6049471-53a4-438b-941e-faacb97aba97",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:54.701157+00:00",
+      "finished_at": "2026-11-06 06:13:55.001467+00:00",
+      "processing_seconds": "0.300310"
+    },
+    {
+      "task_id": "9f1fa93e-ce74-4635-972f-d9bf5dbdc61c",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.025618+00:00",
+      "finished_at": "2026-11-06 06:13:55.323386+00:00",
+      "processing_seconds": "0.297768"
+    },
+    {
+      "task_id": "10df86ef-b759-4ff3-92a6-303cee34fce9",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.026783+00:00",
+      "finished_at": "2026-11-06 06:13:55.337702+00:00",
+      "processing_seconds": "0.310919"
+    },
+    {
+      "task_id": "19f62260-e345-4bdf-8f65-4ad39ea979b3",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.363478+00:00",
+      "finished_at": "2026-11-06 06:13:55.673039+00:00",
+      "processing_seconds": "0.309561"
+    },
+    {
+      "task_id": "eb95fd93-e3a3-4a91-9e5a-caeb5d7da570",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.371281+00:00",
+      "finished_at": "2026-11-06 06:13:55.699048+00:00",
+      "processing_seconds": "0.327767"
+    },
+    {
+      "task_id": "0590116c-fc8d-49ff-88ea-bc3962804a2e",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.702004+00:00",
+      "finished_at": "2026-11-06 06:13:56.002542+00:00",
+      "processing_seconds": "0.300538"
+    },
+    {
+      "task_id": "a78a6929-2d16-4306-9055-4426497dbd80",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:55.726142+00:00",
+      "finished_at": "2026-11-06 06:13:56.103957+00:00",
+      "processing_seconds": "0.377815"
+    },
+    {
+      "task_id": "a13612be-82b4-47a0-9b54-839d3e90d698",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.045297+00:00",
+      "finished_at": "2026-11-06 06:13:56.328145+00:00",
+      "processing_seconds": "0.282848"
+    },
+    {
+      "task_id": "a77f9c37-fcf7-4897-a282-485221771ca8",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.133290+00:00",
+      "finished_at": "2026-11-06 06:13:56.441388+00:00",
+      "processing_seconds": "0.308098"
+    },
+    {
+      "task_id": "a0040032-c540-45cb-8f25-cf6e9aaed85c",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.354754+00:00",
+      "finished_at": "2026-11-06 06:13:56.633003+00:00",
+      "processing_seconds": "0.278249"
+    },
+    {
+      "task_id": "b2013acf-b30c-4518-872d-0408563918b0",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.469777+00:00",
+      "finished_at": "2026-11-06 06:13:56.808070+00:00",
+      "processing_seconds": "0.338293"
+    },
+    {
+      "task_id": "2ffc8cd9-2988-4ae0-bf0c-929f4f936a13",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.661636+00:00",
+      "finished_at": "2026-11-06 06:13:57.012297+00:00",
+      "processing_seconds": "0.350661"
+    },
+    {
+      "task_id": "17dc49d3-9e82-494a-8698-86fe5616bafb",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:56.837365+00:00",
+      "finished_at": "2026-11-06 06:13:57.133150+00:00",
+      "processing_seconds": "0.295785"
+    },
+    {
+      "task_id": "b87346e4-c50e-4cbd-8b7f-471e85c48e3f",
+      "status": "ready",
+      "error_code": null,
+      "started_at": "2026-11-06 06:13:57.037713+00:00",
+      "finished_at": "2026-11-06 06:13:57.354531+00:00",
+      "processing_seconds": "0.316818"
+    }
+  ]
+}

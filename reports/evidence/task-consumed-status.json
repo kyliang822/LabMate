@@ -1,0 +1,10 @@
+{
+  "task_id": "91feaa76-d729-4155-9927-1c183d1086ca",
+  "status": "failed",
+  "stage": "embed",
+  "attempts": 1,
+  "retries": 0,
+  "error_code": "embedding_not_configured",
+  "started_at": "2026-11-06 05:40:01.032823+00:00",
+  "finished_at": "2026-11-06 05:40:01.057158+00:00"
+}

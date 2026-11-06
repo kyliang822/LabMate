@@ -1,0 +1,18 @@
+{
+  "submit_status": 202,
+  "query_status": 200,
+  "task": {
+    "task_id": "38310a1f-a689-4f52-8e11-2f8172fb4314",
+    "version_id": "b141ac81-fef7-46a6-9aff-9a6f3a3e866b",
+    "material_id": "51effa01-8afd-4aa1-a3d4-94c358c3e906",
+    "status": "queued",
+    "stage": "queued",
+    "attempts": 0,
+    "retries": 0,
+    "cycle": 0,
+    "error_code": null,
+    "created_at": "2026-11-06T06:08:57.921400+00:00",
+    "started_at": null,
+    "finished_at": null
+  }
+}

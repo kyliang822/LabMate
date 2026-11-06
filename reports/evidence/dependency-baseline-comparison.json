@@ -1,0 +1,7 @@
+{
+  "first": "security-20261106T033610Z-pip-audit.json",
+  "latest": "security-20261106T034522Z-pip-audit.json",
+  "same_package_version_advisory_set": true,
+  "unique_advisory_count": 14,
+  "raw_record_count": 28
+}

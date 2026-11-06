@@ -1,0 +1,10 @@
+{
+  "version_id": "fa7b062d-6583-4914-9478-7e1edbdcc86b",
+  "version": 1,
+  "embedding_model": "BAAI/bge-m3",
+  "embedding_dimensions": 1024,
+  "ready_at": "2026-11-06 06:02:58.747045+00:00",
+  "is_current": true,
+  "stored_chunks": 1,
+  "searchable_chunks": 1
+}

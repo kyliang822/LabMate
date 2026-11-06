@@ -1,0 +1,207 @@
+{
+  "measurement": "Python perf_counter; container-local API request including response read",
+  "samples": [
+    {
+      "index": 1,
+      "idempotency_key": "7ac091a8-640c-42b5-b584-a5214125a105",
+      "http_status": 202,
+      "elapsed_seconds": 0.07220343800054252,
+      "response": {
+        "task_id": "543a4869-a1b9-4d90-87b6-77b7c7038bfb",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 2,
+      "idempotency_key": "59bb2003-8a40-4b86-8088-cd569c21a5e9",
+      "http_status": 202,
+      "elapsed_seconds": 0.05906258300001355,
+      "response": {
+        "task_id": "9c9fc470-efe6-4878-be82-c797bdc1f75b",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 3,
+      "idempotency_key": "14c7d244-2bee-46fd-b76c-0011eb531412",
+      "http_status": 202,
+      "elapsed_seconds": 0.061895673000435636,
+      "response": {
+        "task_id": "b7d6520c-a531-4db4-8c23-f99feb76f8e8",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 4,
+      "idempotency_key": "c1782586-7e38-4141-a453-33d883ea9a8e",
+      "http_status": 202,
+      "elapsed_seconds": 0.06853824700010591,
+      "response": {
+        "task_id": "c3740d2a-275b-4a10-be89-f63b6764c583",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 5,
+      "idempotency_key": "a09121b3-5e30-492a-bba2-659d96c440d8",
+      "http_status": 202,
+      "elapsed_seconds": 0.07534166400000686,
+      "response": {
+        "task_id": "85924715-a4e6-48d5-873e-388a5a0a2121",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 6,
+      "idempotency_key": "e5e24b08-e4aa-4428-b2d3-f25ee72aba66",
+      "http_status": 202,
+      "elapsed_seconds": 0.06684077999943838,
+      "response": {
+        "task_id": "2efdee86-81a9-40db-a835-7953d3050a64",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 7,
+      "idempotency_key": "3124ee59-0496-4028-95da-eef45883b0ec",
+      "http_status": 202,
+      "elapsed_seconds": 0.07221775699963473,
+      "response": {
+        "task_id": "a6049471-53a4-438b-941e-faacb97aba97",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 8,
+      "idempotency_key": "36bdaed3-cdc4-405a-bdb1-ebda226dab9c",
+      "http_status": 202,
+      "elapsed_seconds": 0.06536999499985541,
+      "response": {
+        "task_id": "9f1fa93e-ce74-4635-972f-d9bf5dbdc61c",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 9,
+      "idempotency_key": "d5df1b01-9d7d-4a54-845f-d1b22f64f938",
+      "http_status": 202,
+      "elapsed_seconds": 0.06085482199978287,
+      "response": {
+        "task_id": "10df86ef-b759-4ff3-92a6-303cee34fce9",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 10,
+      "idempotency_key": "d779fb49-0dbf-406f-8c3f-815a401bed0e",
+      "http_status": 202,
+      "elapsed_seconds": 0.0737905790001605,
+      "response": {
+        "task_id": "19f62260-e345-4bdf-8f65-4ad39ea979b3",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 11,
+      "idempotency_key": "f04351a4-cdeb-47c3-bfd5-f073447f7145",
+      "http_status": 202,
+      "elapsed_seconds": 0.05975640300039231,
+      "response": {
+        "task_id": "eb95fd93-e3a3-4a91-9e5a-caeb5d7da570",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 12,
+      "idempotency_key": "b6cb20c6-3fcb-4711-a7de-02c89dad28c9",
+      "http_status": 202,
+      "elapsed_seconds": 0.0720252220007751,
+      "response": {
+        "task_id": "0590116c-fc8d-49ff-88ea-bc3962804a2e",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 13,
+      "idempotency_key": "89cdec7b-7bbc-4891-a734-9c8b43dd7391",
+      "http_status": 202,
+      "elapsed_seconds": 0.06388254000012239,
+      "response": {
+        "task_id": "a78a6929-2d16-4306-9055-4426497dbd80",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 14,
+      "idempotency_key": "d9d8508d-5234-4b85-9660-60d530741fa9",
+      "http_status": 202,
+      "elapsed_seconds": 0.06108030100040196,
+      "response": {
+        "task_id": "a13612be-82b4-47a0-9b54-839d3e90d698",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 15,
+      "idempotency_key": "32c67eff-45a4-4c6d-ae9a-8679b5bd460f",
+      "http_status": 202,
+      "elapsed_seconds": 0.05736613299995952,
+      "response": {
+        "task_id": "a77f9c37-fcf7-4897-a282-485221771ca8",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 16,
+      "idempotency_key": "05b8bf6e-ca1a-4ea6-ba07-1ab33c38d948",
+      "http_status": 202,
+      "elapsed_seconds": 0.061005749999822,
+      "response": {
+        "task_id": "a0040032-c540-45cb-8f25-cf6e9aaed85c",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 17,
+      "idempotency_key": "d25254d8-2111-4b42-9260-afc59824df4e",
+      "http_status": 202,
+      "elapsed_seconds": 0.06600285199965583,
+      "response": {
+        "task_id": "b2013acf-b30c-4518-872d-0408563918b0",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 18,
+      "idempotency_key": "e1a58e13-f897-46fb-82fd-acd6b31305a6",
+      "http_status": 202,
+      "elapsed_seconds": 0.06152223400022194,
+      "response": {
+        "task_id": "2ffc8cd9-2988-4ae0-bf0c-929f4f936a13",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 19,
+      "idempotency_key": "16be6ae9-6017-486d-80d0-3c7f4b5ffd89",
+      "http_status": 202,
+      "elapsed_seconds": 0.06603295399963827,
+      "response": {
+        "task_id": "17dc49d3-9e82-494a-8698-86fe5616bafb",
+        "status": "accepted"
+      }
+    },
+    {
+      "index": 20,
+      "idempotency_key": "7fb1b4f4-df1f-4a8c-a386-df38138c0976",
+      "http_status": 202,
+      "elapsed_seconds": 0.05958850200022425,
+      "response": {
+        "task_id": "b87346e4-c50e-4cbd-8b7f-471e85c48e3f",
+        "status": "accepted"
+      }
+    }
+  ],
+  "p95_seconds": 0.0737905790001605,
+  "all_20_accepted": true
+}

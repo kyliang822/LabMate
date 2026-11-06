@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "20261106T034652Z",
+  "head": "a21bb3e7fbbc7ca5546a9a9dd1d91d07daa1ddea",
+  "dirty": true,
+  "artifacts": {
+    "secrets": "reports/evidence/security-20261106T034652Z-secrets.json"
+  },
+  "exit_code": 0
+}

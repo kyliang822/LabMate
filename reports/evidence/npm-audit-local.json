@@ -1,0 +1,96 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@vue/language-core": {
+      "name": "@vue/language-core",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "vue-tsc"
+      ],
+      "range": "<=3.0.1",
+      "nodes": [
+        "node_modules/@vue/language-core"
+      ],
+      "fixAvailable": {
+        "name": "vue-tsc",
+        "version": "3.3.14",
+        "isSemVerMajor": true
+      }
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1244623,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=7.0.0 <11.0.1"
+        }
+      ],
+      "effects": [
+        "@vue/language-core"
+      ],
+      "range": "7.0.0 - 11.0.0",
+      "nodes": [
+        "node_modules/minimatch"
+      ],
+      "fixAvailable": {
+        "name": "vue-tsc",
+        "version": "3.3.14",
+        "isSemVerMajor": true
+      }
+    },
+    "vue-tsc": {
+      "name": "vue-tsc",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@vue/language-core"
+      ],
+      "effects": [],
+      "range": "1.7.0-alpha.0 - 3.0.1",
+      "nodes": [
+        "node_modules/vue-tsc"
+      ],
+      "fixAvailable": {
+        "name": "vue-tsc",
+        "version": "3.3.14",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 3,
+      "high": 0,
+      "critical": 0,
+      "total": 3
+    },
+    "dependencies": {
+      "prod": 25,
+      "dev": 76,
+      "optional": 53,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 100
+    }
+  }
+}
